@@ -1,0 +1,16 @@
+https://zsecurity.org/how-to-start-a-fake-access-point-fake-wifi/
+ifconfig wlan1 down
+iwconfig wlan1 mode monitor
+ifconfig wlan1 up
+
+airmon-ng start wlan1
+
+/home/kali/Desktop/fap/hostapd.conf
+
+hostapd hostapd.conf
+
+
+ifconfig wlan1 up 192.168.1.1 netmask 255.255.255.0
+route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1
+
+dnsmasq -C dnsmasq.conf -d
