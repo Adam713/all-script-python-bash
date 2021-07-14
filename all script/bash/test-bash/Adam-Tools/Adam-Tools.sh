@@ -30,11 +30,12 @@ echo -e "3)\033[1;37m aireplay-ng network "
 echo -e "4) aireplay-ng mac Target "
 echo -e "5) airodump "
 echo -e "6) Run Hostapd "
-echo -e "7) mdk ataack \033[0m"
+echo -e "7) mdk ataack "
+echo -e "8) Change Mac "
+echo -e "9) Clear \033[0m"
 
 
 #echo -e "4)Run dnsmasq "
-echo -e "7)Clear "
 #echo -e "6) airmon-n start "
 echo -e "0)Exit "
 while true; do
@@ -86,12 +87,13 @@ sudo xterm -e airodump-ng $i
 read -p "please Enter Yor Option > " tryag
 elif [[ $tryag -eq '6' ]]; then
 echo -e "Whait...!"
-sleep 6
+sleep 2
 sudo xterm -e hostapd /home/kali/Desktop/bash/test-bash/Adam-Tools/hostapd.conf
 
 read -p "please Enter Yor Option > " tryag
 elif [[ $tryag -eq '7' ]]; then
 echo -e "Whait...!"
+sleep 1
 rm -rf mac-list.txt
 sudo touch mac-list.txt
 read -p "Enter bssid :# " text
@@ -100,10 +102,21 @@ read -p "Enter Intrface :# " i
 read -p "Enter number channel :# " c
 sudo xterm -e mdk3 $i d -b mac-list.txt -c $c
 
+
+ead -p "please Enter Yor Option > " tryag
+elif [[ $tryag -eq '8' ]]; then
+echo -e "Whait...!"
+sudo airmon-ng
+read -p "Enter Intrface :# " i
+sudo ifconfig $i down
+read -p "Enter your Mac :# " mac
 sleep 1
+sudo ifconfig $i hw ether $mac
+sudo ifconfig $i up
+sudo systemctl restart NetworkManager.service
 #clear
 
-read -p "please Enter Yor Option > " tryag 
+read -p "please Enter Yor Option > " tryag
 elif [[ $tryag -eq '0' ]]; then
 echo -e "Whait...!"
 sleep 2
