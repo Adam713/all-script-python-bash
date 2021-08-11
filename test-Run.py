@@ -1,10 +1,18 @@
 import os
 import time
 import subprocess
+
+os.system("sudo apt-get install figlet")
+os.system("sudo apt-get install xterm")
+os.system("clear")
+os.system("figlet -w 200 -f standard Adam-Hackd")
+os.system("figlet -w 200 -f  small Ethical  hacker")
+
 def mainMenu():
 	print("1.Show Interface")
 	print("2. Change Mac ")
-	print("3.Exit the program.")
+	print("3.Xterm ")
+	print("0.Exit the program.")
 
 		#while option !=0:
 	while True:
@@ -22,8 +30,16 @@ def mainMenu():
 				#print("Option 2 has been called.")adam
 				Mac()
 				break
+
 			#ths option for exit script adam
+
+
 			elif selection == 3:
+
+				xterm()
+				break
+
+			elif selection == 0:
 				break
 #
 			else:
@@ -62,6 +78,19 @@ def Mac():
 	os.system(restar)
 	#os.system("sudo ifconfig wlan0 hw ether ")
 	#print("Bad")
+
+def xterm():
+	print("xterm termnall")
+	#air = "airmon-ng"
+	os.system("sudo xterm -hold -e airmon-ng &")
+	time.sleep(1)
+	os.system("sudo xterm -hold -e ifconfig &")
+	#multixterm
+	#xterm -hold -e "python3 test-Run.py"
+	#os.system("sudo gnome-terminal airmon-ng")
+
+
+
 	anykey=input("Enter anything to return to menu ")
 	mainMenu()
 

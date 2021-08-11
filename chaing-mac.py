@@ -2,9 +2,23 @@ import os
 import time
 import subprocess
 def mainMenu():
-	print("1.Show Interface")
+
+	CRED = '\033[91m'
+	CEND = '\033[0m'
+	HEADER = '\033[95m'
+	OKBLUE = '\033[94m'
+	OKCYAN = '\033[96m'
+	OKGREEN = '\033[92m'
+	WARNING = '\033[93m'
+	FAIL = '\033[91m'
+	ENDC = '\033[0m'
+	BOLD = '\033[1m'
+	UNDERLINE = '\033[4m'
+	#print(BOLD + "1.Show Interface" + CRED)
+
+	print(BOLD + "1.Show Interface" + CRED)
 	print("2.Change Mac ")
-	print("3.Exit the program.")
+	print("3.Exit the program." +CEND)
 
 		#while option !=0:
 	while True:
